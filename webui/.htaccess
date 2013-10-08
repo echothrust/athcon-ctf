@@ -1,0 +1,29 @@
+<Files scoreboard.php>
+Order deny,allow
+deny from all
+</Files>
+
+<Files rules.hacker.php>
+Order deny,allow
+deny from all
+</Files>
+
+<Files rules.admin.php>
+Order deny,allow
+deny from all
+</Files>
+
+<Files register.php>
+Order deny,allow
+deny from all
+</Files>
+
+<Files init.php>
+Order deny,allow
+deny from all
+</Files>
+
+<Files form_details.php>
+Order deny,allow
+deny from all
+</Files>

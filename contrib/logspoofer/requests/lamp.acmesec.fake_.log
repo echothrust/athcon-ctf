@@ -1,0 +1,6 @@
+"GET / HTTP/1.1" 200 1556 "-" 
+"GET /icons/blank.gif HTTP/1.1" 200 148 "http://192.0.0.2/" 
+"GET /icons/folder.gif HTTP/1.1" 200 225 "http://192.0.0.2/" 
+"GET /favicon.ico HTTP/1.1" 404 284 "-" 
+"GET /favicon.ico HTTP/1.1" 404 284 "-" 
+"GET /favicon.ico HTTP/1.1" 404 284 "-" 

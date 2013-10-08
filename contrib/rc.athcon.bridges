@@ -1,0 +1,5 @@
+#!/bin/ksh
+php /var/www/htdocs/athcon.ctf/contrib/restore_bridge.php
+ifconfig bridge0 flushrule em4 rulefile /data/bridge0/em4.rules
+ifconfig bridge1 flushrule em5 rulefile /data/bridge1/em5.rules
+

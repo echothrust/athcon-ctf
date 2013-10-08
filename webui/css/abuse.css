@@ -1,0 +1,146 @@
+body{ 
+	/* background: #f8f8f8 url('../images/athcon_hacker.png') no-repeat; */
+	background: #f8f8f8;
+	background-position: left top;
+	font:13px Trebuchet MS, Arial, Helvetica, Sans-Serif;
+	color:#333;
+	line-height:160%;
+	margin:0;
+	padding:0;
+	text-align:center;
+	}
+
+h1{
+	font-size:200%;
+	font-weight:normal;
+	}		
+h2, h3, h4, h5, h6{
+	font-weight:normal;
+	margin:1em 0;
+	}	
+h2{            
+	font-size:160%;
+	}	
+h3{          
+	font-size:140%;
+	}
+h4{          
+	font-size:120%;
+	}				
+
+a{
+	text-decoration:none;
+	color:#f30;
+	}
+a:hover{
+	color:#999;
+	}			
+table, input, textarea, select, li{
+	font:100% Trebuchet MS, Arial, Helvetica, Sans-Serif;
+	line-height:160%;
+	color:#333;
+	}				
+p, blockquote, ul, ol, form{
+	margin:1em 0;
+	}
+blockquote{
+	}
+img{
+	border:none;
+	}			
+hr{
+	display:none;
+	}	
+table{
+	margin:1em 0;
+	width:100%;
+	border-collapse:collapse;
+	}
+th, td{	
+	padding:2px 5px;
+	}	
+th{	
+	text-align:left;
+	}
+li{
+	display:list-item;
+	}	
+	
+#container{	
+	margin:0 auto;
+	background:#fff;
+	width:90%;
+	padding:20px 40px;
+	text-align:left;
+	}		
+
+#scorecontainer{	
+	margin:0 auto;
+	background:#fff;
+	width:800px;
+	padding:20px 40px;
+	text-align:left;
+	}		
+
+
+/* form 1 */
+
+	#form1{
+		margin:1em 0;
+		padding-top:10px;
+		background:url(../images/form1/form_top.gif) no-repeat 0 0;
+		}
+	#form1 fieldset{
+		margin:0;
+		padding:0;
+		border:none;	
+		float:left;
+		display:inline;
+		width:520px;
+		margin-left:25px;
+		}		
+	#form1 legend{display:none;}	
+	#form1 p{margin:.5em 0;}	
+	#form1 label{display:block;}	
+	#form1 input, #form1 textarea{		
+		border:1px solid #ddd;
+		background:#fff url(../images/form1/form_input.gif) repeat-x;
+		padding:3px;
+		}		
+	#form1 textarea{
+		height:125px;
+		overflow:auto;
+		}					
+	#form1 p.submit{
+		clear:both;
+		background:url(../images/form1/form_bottom.gif) no-repeat 0 100%;
+		padding:0 25px 20px 25px;
+		margin:0;
+		text-align:right;
+		}	
+	#form1 button{
+		width:150px;
+		height:37px;
+		line-height:37px;		
+		border:none;
+		background:url(../images/form1/form_button.gif) no-repeat 0 0;
+		color:#fff;
+		cursor:pointer;
+		text-align:center;
+		}				
+
+/* // form 1 */
+
+table.scores { widht: 100%; } 
+.scores .hackers tr { border-bottom: 1px solid black; }
+.scores tr th { text-align: center; font-size: 13pt; }
+.hackers thead tr.last { text-align: right; border-bottom: 2px dashed white;}
+.hackers thead tr.last th { text-align: left; }
+.hackers { background: black; color: white;  }
+.hackers tbody tr { border-bottom: 1px solid white; }
+
+.scores .hackers tr { border-bottom: 1px solid white; }
+.admins thead tr.last { text-align: right; border-bottom: 2px dashed black;}
+.admins thead tr.last th { text-align: left; }
+.admins { background: white; color: black;  }
+.admins tbody tr { border-bottom: 1px solid black; }

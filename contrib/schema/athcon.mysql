@@ -1,0 +1,138 @@
+-- phpMyAdmin SQL Dump
+-- version 3.3.9.1
+-- http://www.phpmyadmin.net
+--
+-- Host: localhost
+-- Generation Time: Apr 11, 2012 at 01:17 AM
+-- Server version: 5.1.54
+-- PHP Version: 5.2.17
+
+SET FOREIGN_KEY_CHECKS=0;
+SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+
+--
+-- Database: `athcon`
+--
+
+-- --------------------------------------------------------
+
+
+DROP TABLE IF EXISTS `arpdat`;
+CREATE TABLE IF NOT EXISTS `arpdat` (
+  `mac` varchar(18) COLLATE utf8_unicode_ci NOT NULL,
+  `IP` bigint(20) DEFAULT NULL,
+  `ts` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`mac`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+DROP TABLE IF EXISTS `users`;
+CREATE TABLE IF NOT EXISTS `users` (
+  `id` int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+  `nickname` varchar(255) COLLATE utf8_unicode_ci NOT NULL UNIQUE,
+  `team` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `category` VARCHAR(10) NOT NULL DEFAULT 'admin',
+  `passwd` VARCHAR(255) NOT NULL DEFAULT 'password',
+  `mac` varchar(18) COLLATE utf8_unicode_ci NOT NULL UNIQUE,
+  `signature` text  NOT NULL,
+  `created` int default 0,
+  `total_packets` BIGINT NOT NULL DEFAULT 0,
+  `valid_packets` BIGINT NOT NULL DEFAULT 0,
+  `invalidated_packets` BIGINT NOT NULL DEFAULT 0,
+  `traffic` BIGINT NOT NUL DEFAULT 0,
+  TS TIMESTAMP
+) ENGINE=InnoDB ;
+
+
+DROP TABLE IF EXISTS tcpdump;
+CREATE TABLE tcpdump (
+	id BIGINT unsigned NOT NULL PRIMARY KEY AUTO_INCREMENT,
+	srchw CHAR(17) NOT NULL,
+	dsthw CHAR(17) NOT NULL,
+	`size` INT NOT NULL, 
+	proto ENUM('tcp','udp','icmp','tell') default 'tcp',
+	srcip BIGINT UNSIGNED , 
+	dstip BIGINT UNSIGNED, 
+	dstport INT,
+	ts TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+	index (srchw),
+	index (dsthw),
+	index (size),
+	index (srcip),
+	index (dstip),
+	index (dstport),
+	index (ts)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+DROP TABLE IF EXISTS treasures;
+CREATE TABLE treasures (
+	id INT PRIMARY KEY AUTO_INCREMENT,
+	name VARCHAR(255) UNIQUE,
+	pubname varchar(255),
+	description TEXT,
+	points decimal(10,2),
+	category enum('admin','hacker') NOT NULL default 'admin',
+	csum varchar(128) NOT NULL DEFAULT '' COMMENT 'If there is a file attached to this treasure',
+	appears INT DEFAULT 0,
+	effects enum('users_id','team','total') default 'users_id',
+	code varchar(128)
+) ENGINE=InnoDB CHARSET=utf8;
+
+DROP TABLE IF EXISTS users_treasures;
+CREATE TABLE users_treasures (
+	id INT PRIMARY KEY AUTO_INCREMENT,
+	treasures_id INT,
+	users_id INT(11) NOT NULL,
+	ts TIMESTAMP NOT NULL,
+	FOREIGN KEY(treasures_id) REFERENCES treasures(id) ON DELETE CASCADE ON UPDATE CASCADE,
+	FOREIGN KEY(users_id) REFERENCES users(id) ON DELETE CASCADE ON UPDATE CASCADE,
+	unique(treasures_id,users_id)
+) ENGINE=InnoDB;
+
+
+DROP TABLE IF EXISTS system_users_treasures;
+CREATE TABLE system_users_treasures (
+	id INT PRIMARY KEY AUTO_INCREMENT,
+	treasures_id INT,
+	users_id INT(11) NOT NULL,
+	ts TIMESTAMP NOT NULL,
+	FOREIGN KEY(treasures_id) REFERENCES treasures(id) ON DELETE CASCADE ON UPDATE CASCADE,
+	FOREIGN KEY(users_id) REFERENCES users(id) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB;
+
+DROP TABLE IF EXISTS vuln;
+CREATE TABLE vuln (
+	id INT PRIMARY KEY AUTO_INCREMENT,
+	users_id INT(11) NOT NULL,
+	subject varchar(255) NOT NULL UNIQUE,
+	server varchar(255) NOT NULL,
+	message longtext,
+	ts TIMESTAMP NOT NULL,
+	FOREIGN KEY(users_id) REFERENCES users(id) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB;
+
+
+DROP TRIGGER IF EXISTS `populate_arpdat`;
+DELIMITER //
+CREATE TRIGGER `populate_arpdat` AFTER INSERT ON `tcpdump`
+ FOR EACH ROW BEGIN
+	REPLACE INTO arpdat (mac,ip) values (NEW.srchw,NEW.srcip);
+	UPDATE users SET total_packets=total_packets+1 WHERE mac=NEW.srchw AND category='hacker';
+	IF NEW.dstip IN (inet_aton('172.0.0.2'), inet_aton('172.0.0.3'),inet_aton('172.0.0.4'),inet_aton('172.0.0.5'),inet_aton('192.0.0.2'), inet_aton('192.0.0.3'),inet_aton('192.0.0.4'),inet_aton('192.0.0.5'),inet_aton('192.0.0.6'),inet_aton('192.0.0.60'))	THEN
+		UPDATE users SET valid_packets=valid_packets+1 WHERE mac=NEW.srchw AND category='hacker';
+	END IF;
+END
+//
+DELIMITER ;
+
+
+DROP VIEW IF EXISTS echofish.weblogs;
+CREATE VIEW echofish.weblogs AS 
+	SELECT id,msg FROM echofish.archive WHERE program='httpd';
+
+SET FOREIGN_KEY_CHECKS=1;

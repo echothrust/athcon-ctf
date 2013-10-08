@@ -1,0 +1,6 @@
+add em5
+add vether1
+rule pass on em5 src 00:0c:29:c5:70:a3 tag www
+rule pass on em5 dst 00:0c:29:c5:70:a3 tag www
+rule block on em5 tag UNAUTH
+up

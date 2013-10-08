@@ -1,0 +1,26 @@
+#!/bin/ksh
+# 
+# ATHCON Specific Services
+echo 'Starting AthCon Services'
+#echo 'Create arpexchange socket (will be used by registration)'
+#mkfifo /tmp/arpexchange
+#chgrp www /tmp/arpexchange
+#chmod g+w /tmp/arpexchange
+echo 'Create Local MySQL socket (for syslog-ng)'
+mkfifo /data/mysql.syslog-ng.local.socket
+echo 'Create Remote MySQL socket (for syslog-ng)'
+mkfifo /data/mysql.syslog-ng.socket
+
+echo "Starting MySQL Local Reader"
+nohup /usr/local/bin/php /var/www/htdocs/athcon.ctf/contrib/mysqlfeed.php -p /data/mysql.syslog-ng.local.pipe -l >/dev/null 2>/dev/null &
+echo "Starting MySQL Remote Reader"
+nohup /usr/local/bin/php /var/www/htdocs/athcon.ctf/contrib/mysqlfeed.php -p /data/mysql.syslog-ng.pipe >/dev/null 2>/dev/null &
+
+#echo "Starting arpsrv"
+#nohup /usr/local/bin/php /var/www/htdocs/athcon.ctf/arpsrv.php 2>&1 >/tmp/arpserv.stderr &
+#echo "Starting arpwatch daemons"
+#/etc/arpwatch.sh
+echo "Starting hacker network capture"
+nohup /etc/tcpdump2sql.sh >/dev/null 2>/dev/null &
+echo "Restoring bridge0/1 rules"
+ksh /etc/rc.athcon.bridges

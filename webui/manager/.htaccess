@@ -1,0 +1,10 @@
+Order allow,deny
+deny from 10
+deny from 192.0.0
+deny from 172.0.0
+allow from all
+RewriteEngine on
+RewriteBase /manager/
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . index.php

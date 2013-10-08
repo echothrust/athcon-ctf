@@ -1,0 +1,56 @@
+-- phpMyAdmin SQL Dump
+-- version 3.3.9.1
+-- http://www.phpmyadmin.net
+--
+-- Host: localhost
+-- Generation Time: Apr 11, 2012 at 01:17 AM
+-- Server version: 5.1.54
+-- PHP Version: 5.2.17
+
+SET FOREIGN_KEY_CHECKS=0;
+SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+
+--
+-- Database: `athcon`
+--
+
+DROP TABLE IF EXISTS `reports`;
+CREATE TABLE IF NOT EXISTS `reports`(
+	id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+	reporter INT NOT NULL,
+	datentime varchar(255) NOT NULL,
+	subject VARCHAR(255) NOT NULL,
+	attacker VARCHAR(32) NOT NULL,
+	server VARCHAR(32) NOT NULL,
+    abuse VARCHAR(32) NOT NULL,
+    message text NOT NULL,
+	logs text NOT NULL,
+	resolved bool default false,
+	thru varchar(255),
+	comments text,
+	mac char(17),
+	FOREIGN KEY (reporter) REFERENCES users(id) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+
+
+DROP TABLE IF EXISTS hint;
+CREATE TABLE hint (
+	id INT UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
+	title varchar(255),
+	usertype enum('admin','hacker','both') default 'hacker',
+	category enum('notice','note','warning','rule') default 'note',
+	message text
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- VIEWS
+--
+
+SET FOREIGN_KEY_CHECKS=1;

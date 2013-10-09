@@ -14,7 +14,7 @@ In an attack/defense style competition, each team is given a machine (or a small
 
 What is Athc0n?
 
-AthCon (http://www.athcon.org/) is an annual, European two-day conference targeting particular areas of information security. It’s aim: to bring leading information security experts together. Attacking techniques of exploitation and various forms of penetration testing have become an important component of any organisation. This conference aims to provide a venue for understanding the ever evolving changes as well as new threats. 
+AthCon is an annual, European two-day conference targeting particular areas of information security. It’s aim: to bring leading information security experts together. Attacking techniques of exploitation and various forms of penetration testing have become an important component of any organisation. This conference aims to provide a venue for understanding the ever evolving changes as well as new threats. More details about the conference can be found @ http://athcon.org/ 
 
 Technical Details:
 
@@ -24,4 +24,4 @@ The `webui` directory contains the PHP site used during gameplay by the users to
 
 The `contrib` directory contains the db schema for the web-ui, where most of the game logic lies. Additionally, you will find all of the operating system configuration and scripts used to support the CTF: For example, in order to make the secluded CTF lan appear like it had normal internet traffic, we employed a syslog event spoofer that was used to generate realistic noise on [Echofish](http://www.echothrust.com/projects/echofish), the powerfull admin console that was given to the admins team, allowing hackers to hide within legitimate event noise, therefore enhancing gameplay for both teams. You will also find all the gource 'glue' used to generate the cool traffic visualisations that were running during the game and other cool stuff used internally on the CTF setup.
 
-More details about the conference can be found @ http://athcon.org/
+

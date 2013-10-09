@@ -1,7 +1,7 @@
-athcon
+Athc0n 2012 CTF setups
 ======
 
-Athc0n 2012 CTF setups
+Intro
 
 This is a release of the backend code that was written to run Athc0n 2k12 CTF, which was basically a hacker vs. admin contest, with winners from both teams. More on the CTF scenario on our blog post http://www.echothrust.com/blogs/putting-together-athcon-2012-ctf-part-i.
 

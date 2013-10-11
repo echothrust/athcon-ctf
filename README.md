@@ -13,9 +13,9 @@ AthCon is an annual, European two-day conference targeting particular areas of i
 
 In computer security, Capture the Flag (CTF) refers to computer security competitions that allow participants to demonstrate their level of skills on practical IT security. As stated [on wikipedia](http://en.wikipedia.org/wiki/Capture_the_flag#Computer_security), there are two main styles of capture the flag competitions: attack/defense and jeopardy. 
 
-### What style then?
-
 Attack/defense style usually requires each of the participant teams to prepare a predefined setup and defend it, while the teams attack each others setups. A jeopardy-style CTF, where points are predefined and teams race to capture them but do not attack each other, naturally sounded better suited, since no specific timeslot was allocated for the CTF in the conference schedule. The problem is that creating a real-world scenario for joepardy
+
+### What style then?
 
 Well, for Athc0n 2k12 we wanted to create a unique, hybrid style of CTF, and decided to do so by allowing participants/teams to join either the attackers scenario (hackers party) or the defenders scenario (admins party) in a LAN we had already prepared for them, involving situations and findings that would yield or substract different point values from the participants/teams. 
 

@@ -3,12 +3,11 @@
 
 ## Intro
 
-This is a release of the backend code that was written to run Athc0n 2k12 CTF, which was basically a hacker vs. admin contest, with winners from both teams. More on the CTF scenario on our blog post http://www.echothrust.com/blogs/putting-together-athcon-2012-ctf-part-i.
+This is a release of the backend code that was written to run Athc0n 2k12 CTF, which was basically a hacker vs. admin contest in a realistic scenario, with winners from both teams.
 
 ### What Athc0n?
 
 AthCon is an annual, European two-day conference targeting particular areas of information security. It’s aim: to bring leading information security experts together. More details about the conference can be found @ http://athcon.org/ 
-
 
 ### What CTF?
 
@@ -16,7 +15,7 @@ In computer security, Capture the Flag (CTF) refers to computer security competi
 
 ### What style then?
 
-Attack/defense style usually requires each of the participant teams to prepare a predefined setup and defend it, while the teams attack each others setups. A jeopardy-style CTF, where points are predefined and teams race to capture them but do not attack each other, naturally sounded better suited, since no specific timeslot was allocated for the CTF in the conference schedule.
+Attack/defense style usually requires each of the participant teams to prepare a predefined setup and defend it, while the teams attack each others setups. A jeopardy-style CTF, where points are predefined and teams race to capture them but do not attack each other, naturally sounded better suited, since no specific timeslot was allocated for the CTF in the conference schedule. The problem is that creating a real-world scenario for joepardy
 
 Well, for Athc0n 2k12 we wanted to create a unique, hybrid style of CTF, and decided to do so by allowing participants/teams to join either the attackers scenario (hackers party) or the defenders scenario (admins party) in a LAN we had already prepared for them, involving situations and findings that would yield or substract different point values from the participants/teams. 
 
@@ -30,7 +29,11 @@ You can read more on the game style and the CTF scenario at [echothrust.com/blog
 
 The code was created for the sole purpose of hosting the 2012 CTF event, but is in escence a generic CTF game engine for our special jeopardy-style CTF gametype. We are releasing the engine behind the CTF because it can easily be used to re-accommodate a CTF contest, and because we would be happy to see this project evolve.
 
-## Technical Details
+## What is included
+
+We have included all the code that was used for the CTF event, along with the gamedata generated during the event.
+
+### Details
 
 The `webui` directory contains the PHP site used during gameplay by the users to register, keep scores, submit results, etc
   * `webui/*.php` the frontend for the CTF participants, plus misc pages like the scoreboard.

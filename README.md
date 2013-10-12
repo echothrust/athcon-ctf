@@ -43,3 +43,4 @@ The `contrib` directory contains the db schema for the web-ui, where most of the
 
 [[embed url=http://www.youtube.com/watch?v=2hlvEVSe24M]]
 
+[![IMAGE ALT TEXT HERE](http://img.youtube.com/vi/2hlvEVSe24M/0.jpg)](http://www.youtube.com/watch?v=2hlvEVSe24M)

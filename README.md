@@ -41,6 +41,3 @@ The `webui` directory contains the PHP site used during gameplay by the users to
 
 The `contrib` directory contains the db schema for the web-ui, where most of the game logic lies. Additionally, you will find all of the operating system configuration and scripts used to support the CTF: For example, in order to make the secluded CTF lan appear like it had normal internet traffic, we employed a syslog event spoofer that was used to generate realistic noise on [Echofish](http://www.echothrust.com/projects/echofish), the powerfull admin console that was given to the admins team, allowing hackers to hide within legitimate event noise, therefore enhancing gameplay for both teams. You will also find all the gource 'glue' used with tcpdump to generate the [cool traffic visualisations](http://www.youtube.com/watch?v=2hlvEVSe24M) that were running during the game and other cool stuff used internally on the CTF setup.
 
-[[embed url=http://www.youtube.com/watch?v=2hlvEVSe24M]]
-
-[![IMAGE ALT TEXT HERE](http://img.youtube.com/vi/2hlvEVSe24M/0.jpg)](http://www.youtube.com/watch?v=2hlvEVSe24M)

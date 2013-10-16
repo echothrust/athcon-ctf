@@ -5,11 +5,11 @@
 
 This is a release of the backend code that was written to run Athc0n 2k12 CTF, which was basically a hacker vs. admin contest in a realistic scenario, with winners from both teams.
 
-### What Athc0n?
+### About Athc0n
 
 AthCon is an annual, European two-day conference targeting particular areas of information security. It’s aim: to bring leading information security experts together. More details about the conference can be found @ http://athcon.org/ 
 
-### What CTF?
+### About CTF
 
 In computer security, Capture the Flag (CTF) refers to computer security competitions that allow participants to demonstrate their level of skills on practical IT security. As stated [on wikipedia](http://en.wikipedia.org/wiki/Capture_the_flag#Computer_security), there are two main styles of capture the flag competitions: attack/defense and jeopardy. 
 

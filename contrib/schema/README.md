@@ -4,13 +4,15 @@ Having said that, you can still import the ctf schema without installing echofis
 
 Import procedure:
 
-$ echo "CREATE DATABASE echofish" | mysql -u root -p
-$ mysql -u root -p echofish < echofish-federated-archive.sql
-$ echo "CREATE DATABASE athcon" | mysql -u root -p 
-$ mysql -u root -p athcon < athcon.mysql
-$ mysql -u root -p athcon < athcon-federated.mysql
-$ mysql -u root -p athcon < athcon-triggers.sql
-$ mysql -u root -p athcon < athcon-users.sql
-$ mysql -u root -p athcon < athcon-events.sql
-$ mysql -u root -p athcon < athcon-data.sql
+```
+echo "CREATE DATABASE echofish" | mysql -u root -p
+mysql -u root -p echofish < echofish-federated-archive.sql
+echo "CREATE DATABASE athcon" | mysql -u root -p 
+mysql -u root -p athcon < athcon.mysql
+mysql -u root -p athcon < athcon-federated.mysql
+mysql -u root -p athcon < athcon-triggers.sql
+mysql -u root -p athcon < athcon-users.sql
+mysql -u root -p athcon < athcon-events.sql
+mysql -u root -p athcon < athcon-data.sql
+```
 

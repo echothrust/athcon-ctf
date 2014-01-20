@@ -44,7 +44,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `total_packets` BIGINT NOT NULL DEFAULT 0,
   `valid_packets` BIGINT NOT NULL DEFAULT 0,
   `invalidated_packets` BIGINT NOT NULL DEFAULT 0,
-  `traffic` BIGINT NOT NUL DEFAULT 0,
+  `traffic` BIGINT NOT NULL DEFAULT 0,
   TS TIMESTAMP
 ) ENGINE=InnoDB ;
 

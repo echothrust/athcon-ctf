@@ -133,17 +133,6 @@ CREATE VIEW union_achievements_FULL AS
 	LEFT JOIN treasures t2 on t1.treasures_id=t2.id
 	LEFT JOIN users t3 on t1.users_id=t3.id;
 
-DROP VIEW IF EXISTS uid_dst_ports_counters;
-CREATE VIEW uid_dst_ports_counters AS
-		SELECT distinct id,dstip,count(*) as counter FROM `uid_dst_ports` group by id,dstip;
-
-DROP VIEW IF EXISTS uid_inet_dst_ports_counters;
-CREATE VIEW uid_inet_dst_ports_counters AS
-		SELECT distinct id,inet_ntoa(dstip) as dstip,count(*) as counter FROM `uid_dst_ports` group by id,dstip;
-
-DROP VIEW IF EXISTS uid_inet_dst_ports;
-CREATE VIEW uid_inet_dst_ports as SELECT id,inet_ntoa(dstip) dstip,dstport,proto FROM `uid_dst_ports`;		
-
 DROP VIEW IF EXISTS uid_dst_ports;
 CREATE VIEW uid_dst_ports AS
 		select distinct t2.id,`dstip`,dstport,proto
@@ -174,6 +163,16 @@ CREATE VIEW uid_dst_ports AS
 		)
 		group by t1.srchw,t1.dstip,t1.dstport,t1.proto;
 		
+DROP VIEW IF EXISTS uid_dst_ports_counters;
+CREATE VIEW uid_dst_ports_counters AS
+		SELECT distinct id,dstip,count(*) as counter FROM `uid_dst_ports` group by id,dstip;
+
+DROP VIEW IF EXISTS uid_inet_dst_ports_counters;
+CREATE VIEW uid_inet_dst_ports_counters AS
+		SELECT distinct id,inet_ntoa(dstip) as dstip,count(*) as counter FROM `uid_dst_ports` group by id,dstip;
+
+DROP VIEW IF EXISTS uid_inet_dst_ports;
+CREATE VIEW uid_inet_dst_ports as SELECT id,inet_ntoa(dstip) dstip,dstport,proto FROM `uid_dst_ports`;		
 
 		
 delimiter |

@@ -23,7 +23,7 @@ Participants in the Hackers party were required to bring their laptops and attem
 
 What we came up with was a joepardy-style CTF, that also involved teams and parties and winner standings from each party. Having introduced the Admins party in the scenario, required for the attacks to be more realistic, since they had to pass undetected in a realistic up-to-date network with many monitoring services. Even though the game came out almost unannounced, it attracted more than 25 participant teams. Game moderation and scoring was supported by purpose-built solutions, requiring only 2 monitoring moderators.
 
-You can read more on the game style and the CTF scenario at [echothrust.com/blogs/putting-together-athcon-2012-ctf-part-i](http://echothrust.com/blogs/putting-together-athcon-2012-ctf-part-i) and more on the actual CTF setup at [echothrust.com/blogs/putting-together-athcon-2012-ctf-part-ii](http://echothrust.com/blogs/putting-together-athcon-2012-ctf-part-ii)
+You can read more on the game style and the CTF scenario at [echothrust.com/blogs/putting-together-athcon-2012-ctf-part-i](http://echothrust.com/blogs/putting-together-athcon-2012-ctf-part-i) and more on the actual CTF setup at [echothrust.com/blogs/putting-together-athcon-2012-ctf-part-ii-network](http://echothrust.com/blogs/putting-together-athcon-2012-ctf-part-ii-network)
 
 ### Why release this?
 
